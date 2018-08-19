@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Go web programming</title>
+    </head>
+    <body>
+        <div>ドットの値は{{ . }}です。</div>
+        <div>
+            {{ with "world" }}
+                ドットは今、{{ . }}に設定されています。
+            {{ end }}
+        </div>
+        <div>ドットの値は{{ . }}にもどりました。</div>
+    </body>
+</html>
