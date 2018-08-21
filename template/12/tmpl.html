@@ -1,0 +1,10 @@
+<html>
+    <head>
+        <title>Go web programming</title>
+    </head>
+    <body>
+        {{ range $key, $value := . }}
+        キーは {{ $key }}で、値は{{ $value }}です。<br/>
+        {{ end }}
+    </body>
+</html>
