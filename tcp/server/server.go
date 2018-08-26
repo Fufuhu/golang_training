@@ -38,7 +38,7 @@ func handleRequest(conn net.Conn) {
 
 	reqLen, err := conn.Read(buf)
 
-	fmt.Printf("%d, %s", reqLen, string(buf))
+	fmt.Printf("%d, %s\n", reqLen, string(buf))
 
 	if err != nil {
 		fmt.Println("Error reading:", err.Error())
