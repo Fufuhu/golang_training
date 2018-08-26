@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <title>Go web programming</title>
+    </head>
+    <body>
+        {{ range . }}
+            <li>{{ . }}</li>
+        {{ else }}
+            表示対象が存在しない
+        {{ end }}
+    </body>
+</html>
