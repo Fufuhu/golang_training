@@ -24,3 +24,9 @@ users:
     description: PiyoPiyo
     age: 30
 ```
+
+# 参考情報
+
+https://github.com/go-yaml/yaml
+
+http://tweeeety.hateblo.jp/entry/2017/06/04/231043
