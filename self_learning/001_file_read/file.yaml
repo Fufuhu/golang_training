@@ -1,0 +1,7 @@
+users:
+  - name: John
+    description: HogeHoge
+    age: 24
+  - name: Smith
+    description: PiyoPiyo
+    age: 30
