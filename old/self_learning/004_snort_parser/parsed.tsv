@@ -1,0 +1,360 @@
+SQL sa login failed	alert	tcp	{[$SQL_SERVERS] [1433]}	{[$EXTERNAL_NET] [any]}
+MALWARE-BACKDOOR Y3KRAT 1.5 Connect	alert	tcp	{[$HOME_NET] [5880]}	{[$EXTERNAL_NET] [any]}
+MALWARE-BACKDOOR Y3KRAT 1.5 Connect Client Response	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [5880]}
+MALWARE-BACKDOOR Y3KRAT 1.5 Connection confirmation	alert	tcp	{[$HOME_NET] [5880]}	{[$EXTERNAL_NET] [any]}
+NETBIOS SMB Trans2 QUERY_FILE_INFO attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [139]}
+NETBIOS SMB Trans2 QUERY_FILE_INFO andx attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [139]}
+NETBIOS SMB-DS Trans2 QUERY_FILE_INFO attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [445]}
+NETBIOS SMB-DS Trans2 QUERY_FILE_INFO andx attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [445]}
+NETBIOS SMB Trans2 FIND_FIRST2 attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [139]}
+NETBIOS SMB Trans2 FIND_FIRST2 andx attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [139]}
+NETBIOS SMB-DS Trans2 FIND_FIRST2 attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [445]}
+NETBIOS SMB-DS Trans2 FIND_FIRST2 andx attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [445]}
+MALWARE-CNC Win.Trojan.Hydraq variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [443]}
+MALWARE-CNC Win.Trojan.Derusbi.A variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [12080]}
+BLACKLIST known malicious FTP login banner - 0wns j0	alert	tcp	{[$EXTERNAL_NET] [21]}	{[$HOME_NET] [any]}
+BLACKLIST known malicious FTP quit banner - Goodbye happy r00ting	alert	tcp	{[$EXTERNAL_NET] [21]}	{[$HOME_NET] [any]}
+MALWARE-OTHER TDS Sutra - redirect received	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-OTHER Alureon - Malicious IFRAME load attempt	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.ZeroAccess outbound connection	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+MALWARE-CNC Win.Trojan.Magania variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+BLACKLIST DNS request for known malware domain jebena.ananikolic.su - Malware.HPsus/Palevo-B	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+MALWARE-OTHER Malicious UA detected on non-standard port	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [84]}
+MALWARE-CNC Win.Trojan.Symmi variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [443]}
+MALWARE-CNC Win.Trojan.Reventon variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS 443]}
+EXPLOIT-KIT redirection to driveby download	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST DNS request for known malware domain gigasbh.org - Win.Trojan.Dorkbot	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+BLACKLIST DNS request for known malware domain xixbh.com - Win.Trojan.Dorkbot	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+BLACKLIST DNS request for known malware domain xixbh.net - Win.Trojan.Dorkbot	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+MALWARE-OTHER Win.Trojan.Zeus Spam 2013 dated zip/exe HTTP Response - potential malware download	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST User-Agent known malicious user agent NOKIAN95/WEB	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [443]}
+EXPLOIT-KIT Portable Executable downloaded with bad DOS stub	alert	tcp	{[$EXTERNAL_NET] [$FILE_DATA_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST DNS request for known malware domain d1js21szq85hyn.cloudfront.net - Win.Adware.BProtector	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+BLACKLIST DNS request for known malware domain msnsolution.nicaze.net - Genome Trojan	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain theimageparlour.net - Vobfus worm	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-BACKDOOR Win.Backdoor.PCRat data upload	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Cbeplay Ransomware variant outbound connection - Abnormal HTTP Headers	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+MALWARE-OTHER Compromised Website response - leads to Exploit Kit	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST DNS request for known malware domain - Backdoor Rbot	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Bancos fake JPG encrypted config file download	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+MALWARE-CNC Trojan Downloader7	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+MALWARE-CNC Win.Trojan.BlackRev cnc http command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc stop command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc die command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc sleep command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc simple command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc loginpost command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc datapost command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc syn command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc udp command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc udpdata command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc data command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc icmp command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc tcpdata command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc dataget command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc connect command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc dns command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc exec command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc resolve command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc antiddos command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc range command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc ftp command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc download command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc fastddos command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc slowhttp command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc allhttp command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.BlackRev cnc full command	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC cridex HTTP Response - default0.js	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST DNS request for known malware domain vseforyou.ru - Cridex Trojan	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC BitBot Idle C2 response	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST DNS request for known malware domain goliyonzo.pw - BackDoor Comet	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain zalil.ru - Kazy Trojan	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain bigmack.opendns.be - Palevo Botnet	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+BLACKLIST DNS request for known malware domain trafficconverter.biz - ChronoPay	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+BLACKLIST DNS request for known malware domain kukutrustnet777.info - W32.Sality	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+EXPLOIT-KIT DotkaChef/Rmayana/DotCache exploit kit landing page	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+EXPLOIT-KIT Unknown Malvertising exploit kit Hostile Jar pipe.class	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+EXPLOIT-KIT Unknown Malvertising exploit kit stage-1 redirect	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST DNS request for known malware domain twinkcam.net - W32/Kryptik	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain cinnamyn.com - W32/Kryptik	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-OTHER Mac OSX FBI ransomware	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST DNS request for known malware domain restless.su - Gamarue Trojan	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain mainenbha.com - Win.Kraziomel Trojan	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain ohtheigh.cc - Foreign-R Trojan	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-OTHER HideMeBetter spam injection variant	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST DNS request for known malware domain documents.myPicture.info	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain ftp.documents.myPicture.info	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain info.xxuz.com	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain www.documents.myPicture.info	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Win.Backdoor.Aumlib variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Backdoor.Aumlib variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+BLACKLIST DNS request for known malware domain hidatabase.cn - Worm.Silly	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain www.wolfvr.com	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Win.Trojan.Bisonha variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [443]}
+EXPLOIT-KIT Blackholev2/Darkleech exploit kit landing page	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Zeus variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+MALWARE-CNC Win.Trojan.Gh0st variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.Eupuds variant connection	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST DNS request www.xiaopijia.com - Backdoor.Yaddos	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request www.akwm139.com - Backdoor.Yaddos	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request www.1860tour.com - Backdoor.Yaddos	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request ghjgf.info - Backdoor.Yaddos	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+INDICATOR-OBFUSCATION Javascript obfuscation - split - seen in IFRAMEr Tool attack	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+INDICATOR-OBFUSCATION Javascript obfuscation - seen in IFRAMEr Tool attack	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST DNS request for known malware domain goobzo.com - Kazy Trojan	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+INDICATOR-OBFUSCATION Javascript obfuscation - createElement - seen in IFRAMEr Tool attack	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+INDICATOR-OBFUSCATION Javascript obfuscation - fromCharCode - seen in IFRAMEr Tool attack	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+EXPLOIT-KIT Glazunov exploit kit landing page	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Symmi variant SQL check-in	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [1039]}
+BLACKLIST DNS request for known malware domain lovesyr.sytes.net - Win.Worm Dunhihi	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Win.Trojan.Injector inbound connection	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Palevo outbound connection	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [2090]}
+BLACKLIST DNS request to suspicious domain ns0.pollosm.me.uk - Win.Trojan.Bunitu.G	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+BLACKLIST DNS request to suspicious domain ns1.pollosm.me.uk - Win.Trojan.Bunitu.G	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+BLACKLIST DNS request for known malware domain fenhelua.com	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Win.Worm.Steckt IRCbot requesting URL through IRC	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Worm.Neeris IRCbot variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Worm.Steckt IRCbot variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Worm.Steckt IRCbot variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+BLACKLIST DNS request for known malware domain jiang-zem.in - Win.Trojan.Zeus	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain bog5151.zapto.org - Win.Trojan.Dunihi	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain kara.no-ip.info - Win.Trojan.Dunihi	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain antiq.scifi.ro - Linux.Backdoor.Shellbot	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+BLACKLIST DNS request for known malware domain funny.evils.in - Linux.Backdoor.Shellbot	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+MALWARE-CNC Linux.Backdoor.Shellbot outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+MALWARE-CNC Win.Trojan.DomaIQ variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+BLACKLIST DNS request for known malware domain appleupdt.com - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain carrus.gotdns.com - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain cherry1962.dyndns.org - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain ctronlinenews.dyndns.tv - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain dfup.selfip.org - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain fast8.homeftp.org - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain gx5639.dyndns.tv - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain helpcenter1it6238.cz.cc - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain mango66.dyndns.org - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain msupdt.com - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain nav1002.ath.cx - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain nthost.shacknet.nu - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain oco-231-ms.xns01.com - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain pininfarina.dynalias.com - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain pl400.dyndns.org - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain prosoccer1.dyndns.info - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain ricush.ath.cx - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain services.serveftp.org - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain sv.serveftp.org - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain swupdt.com - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain takami.podzone.net - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain tunga.homedns.org - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain wqq.dyndns.org - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain wwnav.selfip.net - Win.Trojan.Careto	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain hattouma12.no-ip.biz - Win.Trojan.Dunihi	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain sidisalim.myvnc.com - Win.Trojan.Dunihi	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Win.Trojan.Kuluoz outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [443]}
+BLACKLIST DNS request for known malware domain www.rekurigo.com - Win.Trojan.Napolar	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Win.Trojan.Napolar phishing attack	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Bancos variant outbound connection 	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+BLACKLIST DNS request for known malware domain smsgrabber.url.ph - Android iBanking/Spy.49	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+MALWARE-CNC Win.Trojan.Graftor variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+MALWARE-CNC Win.Trojan.Glupteba.M initial outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [1024:]}
+BLACKLIST DNS request for known malware domain titan2014.sytes.net - Win.Trojan.Zbot/Bublik	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+MALWARE-CNC Win.Trojan.Zbot/Bublik inbound connection	alert	tcp	{[$EXTERNAL_NET] [1600:1604]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Zbot/Bublik outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [1600:1604]}
+MALWARE-CNC Win.Trojan.Zbot/Bublik outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [1600:1604]}
+SERVER-OTHER OpenSSL SSLv3 heartbeat read overrun attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}
+SERVER-OTHER OpenSSL TLSv1 heartbeat read overrun attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}
+SERVER-OTHER OpenSSL TLSv1.1 heartbeat read overrun attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}
+SERVER-OTHER OpenSSL TLSv1.2 heartbeat read overrun attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}
+SERVER-OTHER OpenSSL SSLv3 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL TLSv1 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL TLSv1.1 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL TLSv1.2 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL SSLv3 heartbeat read overrun attempt - vulnerable client response	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [21 25 443 465 636 992 993 995 2484]}
+SERVER-OTHER OpenSSL TLSv1 heartbeat read overrun attempt - vulnerable client response	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [21 25 443 465 636 992 993 995 2484]}
+SERVER-OTHER OpenSSL TLSv1.1 heartbeat read overrun attempt - vulnerable client response	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [21 25 443 465 636 992 993 995 2484]}
+SERVER-OTHER OpenSSL TLSv1.2 heartbeat read overrun attempt - vulnerable client response	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [21 25 443 465 636 992 993 995 2484]}
+SERVER-OTHER OpenSSL TLSv1.1 heartbeat read overrun attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}
+SERVER-OTHER OpenSSL TLSv1.2 heartbeat read overrun attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}
+BLACKLIST DNS request for known malware domain eimqqakugeccgwak.org - Win.Trojan.Ramdo	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain uogwoigiuweyccsw.org - Win.Trojan.Ramdo	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+SERVER-OTHER OpenSSL Heartbleed masscan access exploitation attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [443]}
+MALWARE-OTHER Win.Trojan.Agent E-FAX phishing attempt	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST DNS request for known malware domain universal2010.no-ip.org - Win.Worm.Dunihi	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+SERVER-OTHER OpenSSL SSLv3 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL SSLv3 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL TLSv1 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL TLSv1 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL TLSv1.1 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL TLSv1.1 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL TLSv1.2 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL TLSv1.2 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL SSLv3 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL TLSv1 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL TLSv1.1 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER OpenSSL TLSv1.2 large heartbeat response - possible ssl heartbleed attempt	alert	tcp	{[$HOME_NET] [21 25 443 465 636 992 993 995 2484]}	{[$EXTERNAL_NET] [any]}
+MALWARE-BACKDOOR Win.Backdoor.Hikit outbound banner response	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+BLACKLIST DNS request for known malware domain www.casting.diamondhostess.hu- Win.Trojan.SpyBanker	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain www.uslugi-ryazan.ru - Win.Trojan.SpyBanker	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Win.Trojan.ZeroAccess inbound connection	alert	udp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [16464 16465 16470 16471]}
+MALWARE-CNC Win.Trojan.Andromeda HTTP proxy response attempt	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.MSIL variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+BLACKLIST DNS request for known malware domain indo.msname.org	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+BLACKLIST DNS request for known malware domain disk57.com - Win.Trojan.Androm	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain nanoseklo.net - Win.Trojan.HW32	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Win.Trojan.HW32 variant spam attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [25]}
+BLACKLIST DNS reverse lookup response for known malware domain spheral.ru - Win.Trojan.Glupteba	alert	udp	{[$EXTERNAL_NET] [53]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Glupteba C&C server HELLO request to client	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Glupteba C&C server READD command to client	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Glupteba C&C server READY command to client	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Glupteba client response/authenticate to C&C server	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+BLACKLIST DNS request for known malware domain hslh.sytes.net - Win.Worm.Jenxcus	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Win.Trojan.Delf variant HTTP Response	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Delf variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+BLACKLIST DNS request for known malware domain eduarditopallares.mooo.com - Win.Trojan.VBKrypt	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+POLICY-OTHER QLogic Switch 5600/5800 default ftp login attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [$FTP_PORTS]}
+POLICY-OTHER QLogic Switch 5600/5800 default ftp login attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [$FTP_PORTS]}
+BLACKLIST DNS request for known malware domain saltsecond.net - Win.Trojan.Symmi	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain southblood.net - Win.Trojan.Symmi	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Win.Trojan.Symmi variant HTTP response attempt	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+OS-OTHER Bash CGI environment variable injection attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [$HTTP_PORTS]}
+OS-OTHER Malicious DHCP server bash environment variable injection attempt	alert	udp	{[$HOME_NET] [67]}	{[$HOME_NET] [68]}
+BLACKLIST User-Agent known malicious user-agent string - Install - Win.Backdoor.Upatre	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+BLACKLIST User-Agent known malicious user-agent string - Treck - Win.Backdoor.Upatre	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-OTHER Fake Delta Ticket HTTP Response phishing attack	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Linux.Backdoor.Flooder inbound connection attempt - command	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Linux.Backdoor.Flooder outbound telnet connection attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [23]}
+MALWARE-CNC Linux.Backdoor.Flooder outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+OS-OTHER Bash environment variable injection attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$SMTP_SERVERS] [25]}
+OS-OTHER Bash environment variable injection attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$SMTP_SERVERS] [25]}
+OS-OTHER Bash environment variable injection attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [21]}
+OS-OTHER Bash environment variable injection attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [21]}
+BLACKLIST DNS request for known malware domain av4.microsoftsp3.com - Win.Trojan.Plugx	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain java.ns1.name - Win.Trojan.Plugx	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC WIN.Trojan.Plugx variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53 80 443 5432]}
+MALWARE-CNC Win.Backdoor.ZxShell connection incoming attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Backdoor.ZxShell connection outgoing attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.Zxshell variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-OTHER Sinkhole reply - irc-sinkhole.cert.pl	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+BLACKLIST DNS request for known malware domain good.myftp.org - Win.Trojan.Farfi	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+BLACKLIST DNS request for known malware domain tiptronic.soxx.us - Scarsi Trojan	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Win.Trojan.Sodebral HTTP Response attempt	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Sodebral HTTP Response attempt	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST User-Agent known malicious user-agent string RUpdate	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+BLACKLIST DNS request for known malware domain mail.q0v.pl - Group 74	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+BLACKLIST DNS request for known malware domain natoexhibitionff14.com - Group 74	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+BLACKLIST DNS request for known malware domain q0v.pl - Group 74	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+BLACKLIST DNS request for known malware domain qov.hu.com - Group 74	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+MALWARE-CNC Win.Trojan.Darkhotel response connection attempt	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.TinyZBot response connection attempt	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST User-Agent known malicious user-agent string - realupdate - Win.Backdoor.Upatre	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Backdoor.Medusa variant inbound connection	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+BLACKLIST User-Agent known malicious user-agent string - Mazilla/5.0 - Win.Backdoor.Upatre	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+PUA-ADWARE SoftPulse variant HTTP response attempt	alert	tcp	{[$EXTERNAL_NET] [$FILE_DATA_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.HawkEye keylogger exfiltration attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [25 587]}
+MALWARE-CNC Win.Trojan.HawkEye Keylogger exfiltration attempt - clipboard and screenshot	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [25 587]}
+MALWARE-CNC Win.Trojan.HawkEye Keylogger exfiltration attempt - clipboard and screenshot	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [25 587]}
+MALWARE-CNC Win.Trojan.HawkEye Keylogger exfiltration attempt - clipboard and screenshot	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [25 587]}
+MALWARE-CNC Win.Trojan.Zusy inbound CNC response	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BLACKLIST DNS request for known malware domain tracking-recipient.net46.net - Win.Cossta	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Win.Trojan.Gh0st variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.Banload variant MSSQL response	alert	tcp	{[$EXTERNAL_NET] [1433]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Beebone outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [443]}
+BLACKLIST DNS request for known malware domain mymoney.000a.de - Win.Trojan.Fareit	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [53]}
+MALWARE-CNC Linux.Trojan.Mumblehard variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [25]}
+MALWARE-BACKDOOR Win.Backdoor.Wekby Torn variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Backdoor.Wekby Torn variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.Critroni certificate exchange	alert	tcp	{[$EXTERNAL_NET] [21]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Graftor variant HTTP Response	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+BLACKLIST DNS request for known malware domain tooti15.no-ip.biz - Win.Trojan.AutoIt	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Win.Trojan.Cryptowall click fraud response	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Symmi variant dropper download connection	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Linux.Trojan.Bifrose outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+MALWARE-CNC Win.Trojan.Dridex certificate exchange	alert	tcp	{[$EXTERNAL_NET] [4043]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Dridex file download attempt	alert	tcp	{[$EXTERNAL_NET] [$FILE_DATA_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Dridex file download attempt	alert	tcp	{[$HOME_NET] [any]}	{[$SMTP_SERVERS] [25]}
+MALWARE-CNC Win.Trojan.FTPKeyLogger outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [21]}
+MALWARE-CNC Win.Trojan.FTPKeyLogger outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [21]}
+MALWARE-CNC Win.Trojan.Boaxxe variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+MALWARE-CNC Win.Trojan.Sweeper outbound connection	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.Sweeper outbound connection	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.Sweeper outbound connection	alert	udp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.GateKeylogger plugins download attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+MALWARE-CNC Win.Trojan.GateKeylogger initial exfiltration attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+MALWARE-CNC Win.Trojan.Sweeper variant dropper download attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+FILE-OFFICE RFT document malformed header	alert	tcp	{[$EXTERNAL_NET] [$FILE_DATA_PORTS]}	{[$HOME_NET] [any]}
+FILE-OFFICE RFT document malformed header	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$SMTP_SERVERS] [25]}
+MALWARE-CNC Win.Backdoor.DFSCook variant JS dropper outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+MALWARE-CNC Win.Trojan.Dridex certificate exchange	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Dridex certificate exchange	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Bayrob variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.Kirts initial registration	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [25 587]}
+MALWARE-CNC Win.Trojan.PassStealer passwords exfiltration attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.LuminosityLink RAT variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.LuminosityLink RAT variant inbound connection	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Backdoor.JRat inbound self-signed SSL certificate	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Backdoor.JRat inbound self-signed SSL certificate	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Dridex self-signed certificate exchange	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Dridex self-signed certificate exchange	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.iSpy variant initial outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$SMTP_SERVERS] [25 587]}
+MALWARE-CNC Win.Trojan.iSpy variant exfiltration outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$SMTP_SERVERS] [25 587]}
+FILE-OFFICE RTF document incorrect file magic attempt	alert	tcp	{[$EXTERNAL_NET] [$FILE_DATA_PORTS]}	{[$HOME_NET] [any]}
+FILE-OFFICE RTF document incorrect file magic attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$SMTP_SERVERS] [25]}
+FILE-OFFICE Microsoft Office RTF WRAssembly ASLR bypass download attempt	alert	tcp	{[$EXTERNAL_NET] [$FILE_DATA_PORTS]}	{[$HOME_NET] [any]}
+FILE-OFFICE Microsoft Office RTF WRAssembly ASLR bypass download attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$SMTP_SERVERS] [25]}
+MALWARE-CNC Win.Backdoor.NanoBot variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Backdoor.NanoBot variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Backdoor.NanoBot variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [9000:]}
+MALWARE-CNC Win.Backdoor.NanoBot variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Backdoor.NanoBot variant inbound connection	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Backdoor.NanoBot variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Backdoor.NanoBot variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.NanoBot/Perseus initial outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.NanoBot/Perseus server heartbeat request attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.NanoBot/Perseus client heartbeat response attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.Spyrat variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [900]}
+MALWARE-CNC Win.Trojan.HawkEye keylogger exfiltration attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [25 587]}
+SERVER-OTHER Cisco IOS Group-Prime memory disclosure exfiltration attempt	alert	udp	{[$HOME_NET] [500 848 4500 4848]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER Cisco IOS Group-Prime MD5 memory disclosure attempt	alert	udp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [500 848 4500 4848]}
+SERVER-OTHER Cisco IOS Group-Prime SHA memory disclosure attempt	alert	udp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [500 848 4500 4848]}
+MALWARE-CNC Android.Trojan.SpyNote RAT variant inbound connection	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Android.Trojan.SpyNote RAT variant getSMS command response	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Android.Trojan.SpyNote RAT variant getContacts command response	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Backdoor.Houdini variant initial outbound connection attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Backdoor.Houdini variant keylogger inbound init command attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Backdoor.Houdini variant screenshot inbound init command attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Backdoor.Houdini variant screenshot inbound silence command attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Backdoor.Houdini variant screen_thumb inbound init command attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Backdoor.Houdini variant file enumeration inbound init/root/faf command attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [any]}
+BROWSER-FIREFOX Mozilla Firefox ESR NotifyTimeChange use after free attempt	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+BROWSER-FIREFOX Mozilla Firefox ESR NotifyTimeChange use after free attempt	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+MALWARE-CNC Linux.DDoS.D93 outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [31337]}
+BLACKLIST User-Agent known malicious user-agent string - X-Mas	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [443]}
+MALWARE-CNC Win.Ransomware.X-Mas outbound connection attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [443]}
+MALWARE-CNC Win.Ransomware.CryptoLocker binary download response attempt	alert	tcp	{[$EXTERNAL_NET] [$HTTP_PORTS]}	{[$HOME_NET] [any]}
+SERVER-SAMBA Microsoft Windows SMBv2/SMBv3 Buffer Overflow attempt	alert	tcp	{[$EXTERNAL_NET] [139 445]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Houdini variant initial outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+SERVER-OTHER Cisco IOS Smart Install protocol backup config command attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [4786]}
+SERVER-OTHER Cisco IOS Smart Install protocol download config command attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [4786]}
+SERVER-OTHER Cisco IOS Smart Install protocol download image command attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [4786]}
+SERVER-OTHER Cisco IOS Smart Install protocol version command attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$HOME_NET] [4786]}
+OS-WINDOWS Microsoft Windows SMB remote code execution attempt	alert	tcp	{[any] [any]}	{[$HOME_NET] [445]}
+BLACKLIST DNS request for known malware domain update.winappupdater.com - Win.Trojan.Ismdoor	alert	udp	{[$HOME_NET] [any]}	{[any] [53]}
+MALWARE-CNC Win.Trojan.RedLeaves outbound connection attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [995 80 53 443]}
+OS-WINDOWS Microsoft Windows SMB anonymous user session setup request detected	alert	tcp	{[any] [any]}	{[$HOME_NET] [445]}
+OS-WINDOWS Microsoft Windows SMB large NT RENAME transaction request memory leak attempt	alert	tcp	{[any] [any]}	{[$HOME_NET] [445]}
+OS-WINDOWS Microsoft Windows SMB possible leak of kernel heap memory	alert	tcp	{[$HOME_NET] [445]}	{[any] [any]}
+MALWARE-CNC Win.Trojan.RedLeaves outbound connection attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [995 80 53 443]}
+OS-WINDOWS Microsoft Malware Protection Engine type confusion attempt	alert	tcp	{[$EXTERNAL_NET] [$FILE_DATA_PORTS]}	{[$HOME_NET] [any]}
+OS-WINDOWS Microsoft Malware Protection Engine type confusion attempt	alert	tcp	{[$EXTERNAL_NET] [any]}	{[$SMTP_SERVERS] [25]}
+MALWARE-CNC WashingTon ssl certificate negotiation attempt	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [$HTTP_PORTS]}
+OS-WINDOWS Microsoft Windows SMB remote code execution attempt	alert	tcp	{[any] [any]}	{[$HOME_NET] [445]}
+PROTOCOL-OTHER NETBIOS SMB IPC share access attempt	alert	tcp	{[any] [any]}	{[$HOME_NET] [445]}
+PROTOCOL-OTHER NETBIOS SMB IPC share access attempt	alert	tcp	{[any] [any]}	{[$HOME_NET] [445]}
+SERVER-SAMBA Samba is_known_pipe arbitrary module load code execution attempt	alert	tcp	{[any] [any]}	{[$HOME_NET] [445]}
+MALWARE-CNC Win.Trojan.HiddenCobra variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.HiddenCobra variant outbound connection	alert	tcp	{[$HOME_NET] [any]}	{[$EXTERNAL_NET] [any]}
+MALWARE-CNC Win.Trojan.Trickbot self-signed certificate exchange	alert	tcp	{[$EXTERNAL_NET] [443 447 449]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Trickbot self-signed certificate exchange	alert	tcp	{[$EXTERNAL_NET] [443 447 449]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Trickbot self-signed certificate exchange	alert	tcp	{[$EXTERNAL_NET] [443 447 449]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.Trickbot self-signed certificate exchange	alert	tcp	{[$EXTERNAL_NET] [443 447 449]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.PandaZeus malicious certificate exchange	alert	tcp	{[$EXTERNAL_NET] [443]}	{[$HOME_NET] [any]}
+MALWARE-CNC Win.Trojan.PandaZeus self-signed certificate exchange	alert	tcp	{[$EXTERNAL_NET] [443]}	{[$HOME_NET] [any]}
